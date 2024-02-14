@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Caesar Cipher Explanation</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="path/to/bootstrap.min.css">
+    <style>
+        #sec1{
+            padding: 10px;
+            font-size: medium;
+            text-align: justify;
+        }
+        #sec2 ,#sec3{
+            border: 2px solid black;
+            padding: 10px;
+            margin-bottom: 10px;
+            /* font-size: ; */
+
+        }
+        h1 {
+            font-size: 2em;
+            text-align: center;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a href="./hci.html">Home</a></li>
+          <li><a href="./hci3.html">Encryption</a></li>
+          <li><a href="./hci4.html">Decryption</a></li>
+        </ul>
+      </nav>
+      <h1>Caesar Cipher</h1>
+    
+    <div id="sec1" >
+        <p>Caesar Cipher is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is shifted by a certain number of positions down the alphabet.</p>
+
+	<p>The encryption algorithm works by taking the plaintext and shifting each letter by a specified number of positions, called the key. For example, if the key is 3, then the letter A would be replaced by D, B would become E, C would become F, and so on.</p>
+
+	<p>The decryption algorithm works by reversing the process. The encrypted text is shifted back to its original position to reveal the plaintext.</p>
+
+	<p>Caesar Cipher is not a very secure encryption technique as it can be easily cracked by a brute force attack. However, it is useful for simple applications where security is not a major concern.</p>
+
+	<h2>Example</h2>
+
+	<p>Here is an example of Caesar Cipher:</p>
+
+	<p>Plaintext: ATTACK AT DAWN<br>
+	Key: 3<br>
+	Ciphertext: DWWDFN DW GDZQ</p>
+
+	<h2>Code Example</h2>
+
+	<p>Here is an example of a Python code that can encrypt a message using Caesar Cipher:</p>
+
+    <div id="sec2">
+	<pre>
+	def caesar_cipher(text, key):
+	    result = ""
+	    
+	    for i in range(len(text)):
+	        char = text[i]
+	        
+	        if char.isupper():
+	            result += chr((ord(char) + key - 65) % 26 + 65)
+	        elif char.islower():
+	            result += chr((ord(char) + key - 97) % 26 + 97)
+	        else:
+	            result += char
+	            
+	    return result
+	</pre>
+    </div>
+	<p>Here is an example of how to use the function:</p>
+    <div id="sec3">
+	<pre>
+	text = "ATTACK AT DAWN"
+	key = 3
+
+	ciphertext = caesar_cipher(text, key)
+
+	print("Ciphertext:", ciphertext)
+	</pre>
+</div>
+	<h2>Conclusion</h2>
+
+	<p>Caesar Cipher is a simple encryption technique that can be useful for simple applications where security is not a major concern. However, it is not very secure and can be easily cracked by a brute force attack.</p>
+        <button style="align-content: center;" onclick="window.location.href='./hci2.html'">Next</button>
+    </div>
+    
+    <script src="path/to/bootstrap.min.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<head>
+    <title>Caesar Cipher Explanation</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a href="./hci.html">Home</a></li>
+          <li><a href="./hci3.html">Encryption</a></li>
+          <li><a href="./hci4.html">Decryption</a></li>
+        </ul>
+      </nav>
+    <h1>Caesar Cipher</h1>
+    <div id="page3" >
+        <p>Now that you understand the concept, let's proceed to the encryption and decryption functionality.</p>
+        <p>Enter text:<input  placeholder='Enter Text' id="val" /></p>
+        <p>Enter key:<input placeholder='Enter shift' id="shift" /></p>
+        <button onClick="show()" >Submit</button><br><br>
+        <p id="result"></p>
+        <button onclick="window.location.href='./hci2.html'">Previous</button>
+        <button onclick="window.location.href='./hci4.html'">Next</button>
+    </div>
+ 
+    <script>
+        function show(){
+    console.log(val,shift)
+    var input = document.querySelector("#val");
+        var val= input.value;
+    var input = document.querySelector("#shift");
+        var shift = input.value;
+    if (val=="" && shift==""){
+        alert("Enter text and key value!");
+    }
+    else{
+    var plaintext = val;
+    var ciphertext = caesarCipherEncrypt(plaintext, shift);
+    console.log("Ciphertext: " + ciphertext);
+    const resultElement = document.getElementById("result");
+    resultElement.textContent = "The result is: " + ciphertext;
+    }
+    
+  }
+
+  function caesarCipherEncrypt(sentence, shift) {
+    shift = parseInt(shift)
+    var encrypted = "";
+    for (var i = 0; i < sentence.length; i++) {
+        var char = sentence[i];
+        if (char.match(/[a-z]/i)) {
+            var code = sentence.charCodeAt(i);
+            if (code >= 65 && code <= 90) {
+                char = String.fromCharCode(((code - 65 + shift) % 26) + 65);
+            } else if (code >= 97 && code <= 122) {
+                char = String.fromCharCode(((code - 97 + shift) % 26) + 97);
+            }
+        } else if (char.match(/\d/)) {
+            char = String.fromCharCode(((char.charCodeAt(0) - 48 + shift) % 10) + 48);
+        }
+        encrypted += char;
+    }
+    return encrypted;
+}
+
+    </script>
+</body>
